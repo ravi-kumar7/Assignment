@@ -2,6 +2,7 @@ package com.android.assignment.data.model
 
 import androidx.annotation.StringRes
 
+
 sealed class State{
     object Idle: State()
     object Loading: State()

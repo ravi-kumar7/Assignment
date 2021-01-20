@@ -16,6 +16,6 @@ interface FactDao {
     fun insertFacts(facts:List<Fact>)
 
     @Transaction
-    @Query("SELECT * FROM category")
-    fun getCategoryWithFacts(): CategoryWithFacts
+    @Query("SELECT * FROM category limit 1")
+    fun getCategoryWithFacts(): CategoryWithFacts?
 }
