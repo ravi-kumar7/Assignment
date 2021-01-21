@@ -62,6 +62,8 @@ class MainFragment : DaggerFragment() {
                     (requireActivity() as MainActivity).title = categoryWithFacts.category.title
                     factAdapter.submitList(categoryWithFacts.fact)
                     binding.showProgress = false
+                    if(categoryWithFacts.fact.isEmpty())
+                        showMessage(R.string.no_data)
                 }
                 else -> {
                     binding.showProgress = false

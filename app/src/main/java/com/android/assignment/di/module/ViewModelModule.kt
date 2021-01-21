@@ -11,6 +11,9 @@ import com.android.assignment.util.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 @Module
 class ViewModelModule {
@@ -24,7 +27,9 @@ class ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(MainViewModel::class)
-    fun provideMainViewModel(repository: Repository): MainViewModel =
-            MainViewModel(repository)
+    fun provideMainViewModel(dispatcher: CoroutineDispatcher,repository: Repository): MainViewModel =
+            MainViewModel(repository,dispatcher)
 
+    @Provides
+    fun provideCoroutineScope(): CoroutineDispatcher = Dispatchers.IO
 }

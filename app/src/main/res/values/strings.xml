@@ -11,4 +11,5 @@
     <string name="no_internet">No Internet Connection</string>
     <string name="refresh">Refresh</string>
     <string name="syncing">Syncing data…</string>
+    <string name="no_data">No data</string>
 </resources>
