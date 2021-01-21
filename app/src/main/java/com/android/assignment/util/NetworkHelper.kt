@@ -2,7 +2,10 @@ package com.android.assignment.util
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
+import android.net.NetworkRequest
+import android.os.Build
 
 
 class NetworkHelper(private val context: Context){
@@ -18,4 +21,18 @@ class NetworkHelper(private val context: Context){
             }
         return false
     }
-}
+
+    fun networkCallback(action:()->Unit){
+        val connectivityManager =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkRequest = NetworkRequest.Builder().build()
+        connectivityManager.registerNetworkCallback(networkRequest, object :
+                        ConnectivityManager.NetworkCallback() {
+                    override fun onAvailable(network: Network) {
+                        super.onAvailable(network)
+                        action()
+                    }
+                })
+
+        }
+    }

@@ -15,7 +15,6 @@ class RemoteDataSource @Inject constructor(private val networkService: NetworkSe
             State.Success(networkService.fetchFactsAsync().await())
         }
         catch (e:Exception){
-            Log.d("Test",e.message!!)
             State.Error(R.string.error)
         }
     }

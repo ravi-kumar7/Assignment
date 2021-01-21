@@ -1,6 +1,5 @@
 package com.android.assignment.data.sources
 
-import android.util.Log
 import com.android.assignment.R
 import com.android.assignment.data.model.Response
 import com.android.assignment.data.model.State

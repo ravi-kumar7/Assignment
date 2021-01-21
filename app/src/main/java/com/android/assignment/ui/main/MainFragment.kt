@@ -11,6 +11,7 @@ import com.android.assignment.databinding.MainFragmentBinding
 import com.android.assignment.di.ActivityScope
 import com.android.assignment.di.FragmentScope
 import com.android.assignment.ui.list.FactAdapter
+import com.android.assignment.util.NetworkHelper
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -19,6 +20,8 @@ import javax.inject.Inject
 class MainFragment : DaggerFragment() {
 
     @Inject lateinit var viewModel: MainViewModel
+
+    @Inject lateinit var networkHelper: NetworkHelper
 
     private lateinit var binding:MainFragmentBinding
     private lateinit var factAdapter: FactAdapter
@@ -39,6 +42,9 @@ class MainFragment : DaggerFragment() {
         binding.rvItems.adapter = factAdapter
         setupObservers()
         viewModel.getOrSyncData()
+        networkHelper.networkCallback {
+            viewModel.syncData()
+        }
     }
 
     private fun setupObservers() {
@@ -81,7 +87,7 @@ class MainFragment : DaggerFragment() {
         if(item.itemId == R.id.refresh)
         {
             showMessage(R.string.syncing, Snackbar.LENGTH_SHORT)
-            viewModel.syncData()
+            viewModel.syncData(true)
             return false
         }
         return super.onOptionsItemSelected(item)
