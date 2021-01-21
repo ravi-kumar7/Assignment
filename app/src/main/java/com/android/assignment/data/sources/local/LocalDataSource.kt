@@ -12,7 +12,9 @@ class LocalDataSource @Inject constructor(private val factDao: FactDao) {
     fun saveData(response: Response)
     {
         factDao.insertCategory(Category(response.title))
-        val facts = response.rows.map {
+        val facts = response.rows.filter {
+            !it.title.isNullOrBlank()
+        }.map {
             it.category = response.title
             return@map it
         }

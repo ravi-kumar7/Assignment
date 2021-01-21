@@ -1,6 +1,6 @@
 package com.android.assignment
 
-import com.android.assignment.di.DaggerApplicationComponent
+import com.android.assignment.di.components.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

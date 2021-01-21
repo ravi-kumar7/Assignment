@@ -1,9 +1,10 @@
-package com.android.assignment.di
+package com.android.assignment.di.module
 
 import android.content.Context
 import com.android.assignment.BuildConfig
 import com.android.assignment.data.sources.remote.api.NetworkService
 import com.android.assignment.util.NetworkHelper
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -22,6 +23,7 @@ class NetworkModule {
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
             .create(NetworkService::class.java)
     }

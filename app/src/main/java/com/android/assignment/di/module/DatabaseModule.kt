@@ -1,4 +1,4 @@
-package com.android.assignment.di
+package com.android.assignment.di.module
 
 import android.content.Context
 import androidx.room.Room

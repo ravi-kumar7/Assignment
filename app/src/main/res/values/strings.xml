@@ -9,4 +9,6 @@
     <string name="retry">Retry</string>
     <string name="loading">Loading…</string>
     <string name="no_internet">No Internet Connection</string>
+    <string name="refresh">Refresh</string>
+    <string name="syncing">Syncing data…</string>
 </resources>

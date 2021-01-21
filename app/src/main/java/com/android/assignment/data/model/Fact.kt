@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 
 @Entity
 data class Fact(
-        @PrimaryKey val title: String,
+        @PrimaryKey val title: String = "",
         val description: String?,
         val imageHref:String?,
         var category:String?=null
