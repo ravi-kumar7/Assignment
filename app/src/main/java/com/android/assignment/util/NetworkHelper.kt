@@ -6,9 +6,11 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
-class NetworkHelper(private val context: Context){
+@Singleton
+class NetworkHelper @Inject constructor(private val context: Context){
 
     fun checkNetworkAvailability(): Boolean {
         val connectivityManager =

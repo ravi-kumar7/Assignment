@@ -7,46 +7,33 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/row_margin"
-    android:padding="@dimen/row_padding"
-    android:background="@drawable/row_background">
+    style="@style/Row"
+    >
 
     <TextView
         android:id="@+id/tv_article_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/WidthMatchConstraint.TitleText"
         android:maxLines="2"
         android:text='@{fact.title, default = @string/default_title}'
-        android:textColor="@color/titleColor"
-        android:textSize="@dimen/titleTextSize"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_article_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/WidthMatchConstraint.DescText"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:ellipsize="end"
         android:text='@{fact.description, default = @string/default_description}'
-        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/iv_article"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_article_title" />
 
     <ImageView
         android:id="@+id/iv_article"
-        android:layout_width="@dimen/image_width"
-        android:layout_height="@dimen/image_height"
-        android:layout_gravity="start"
+        style="@style/FactImage"
         android:layout_marginTop="8dp"
-        android:background="@color/black"
         android:contentDescription="@string/factImageDescription"
         android:src="@{fact.imageHref}"
         app:layout_constraintEnd_toEndOf="@+id/tv_article_title"
@@ -54,8 +41,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/WrapContent"
         android:contentDescription="@string/imageMore"
         android:src="@drawable/ic_right"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -10,28 +10,22 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/MatchParent"
         android:id="@+id/swipe_refresh_view">
 <LinearLayout
     android:id="@+id/main"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/MatchParent"
     tools:context=".ui.main.MainFragment">
 
 
     <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:indeterminate="true"
         android:visibility="@{showProgress? View.VISIBLE : View.GONE}"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        style="@style/ProgressBar"
         />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/MatchParent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/rv_items"
         tools:listitem="@layout/layout_row_item"

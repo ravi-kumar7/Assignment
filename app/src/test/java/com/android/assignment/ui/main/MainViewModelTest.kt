@@ -51,6 +51,8 @@ class MainViewModelTest : TestCase(){
             val categoryWithFacts = CategoryWithFacts(Category("Dummy Title"), DummyData.getData())
             doReturn(State.Success(categoryWithFacts)).`when`(repository).getCategoryWithFacts()
             viewModel.getOrSyncData()
+            verify(stateObserver).onChanged(State.Loading)
+            verify(stateObserver).onChanged(State.Success(categoryWithFacts))
             assert(viewModel.state.value == State.Success(categoryWithFacts))
         }
     }
