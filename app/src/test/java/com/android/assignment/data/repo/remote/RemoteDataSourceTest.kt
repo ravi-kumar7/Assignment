@@ -1,9 +1,9 @@
-package com.android.assignment.data.sources.remote
+package com.android.assignment.data.repo.remote
 
 import com.android.assignment.R
 import com.android.assignment.data.model.Response
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.remote.api.NetworkService
+import com.android.assignment.data.repo.remote.api.NetworkService
 import com.android.assignment.util.DummyData
 import junit.framework.TestCase
 import kotlinx.coroutines.CompletableDeferred

@@ -3,7 +3,7 @@ package com.android.assignment.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-import com.android.assignment.data.sources.Repository
+import com.android.assignment.data.repo.Repository
 import com.android.assignment.di.ViewModelKey
 import com.android.assignment.ui.main.MainViewModel
 import com.android.assignment.util.ViewModelFactory
@@ -12,7 +12,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
 @Module

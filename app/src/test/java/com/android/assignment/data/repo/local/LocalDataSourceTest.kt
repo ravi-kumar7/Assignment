@@ -1,4 +1,4 @@
-package com.android.assignment.data.sources.local
+package com.android.assignment.data.repo.local
 
 import com.android.assignment.data.model.Category
 import com.android.assignment.data.model.CategoryWithFacts
@@ -7,7 +7,6 @@ import com.android.assignment.data.model.State
 import com.android.assignment.util.DummyData
 import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -1,6 +1,6 @@
 package com.android.assignment.di.components
 
-import com.android.assignment.MainActivity
+import com.android.assignment.ui.MainActivity
 import com.android.assignment.di.ActivityScope
 import com.android.assignment.di.module.FragmentModule
 import com.android.assignment.ui.main.MainFragment

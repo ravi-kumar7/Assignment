@@ -1,4 +1,4 @@
-package com.android.assignment.data.sources.remote.api
+package com.android.assignment.data.repo.remote.api
 
 import com.android.assignment.data.model.Response
 import com.android.assignment.util.Constants

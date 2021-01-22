@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.android.assignment.data.model.Category
 import com.android.assignment.data.model.CategoryWithFacts
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.Repository
+import com.android.assignment.data.repo.Repository
 import com.android.assignment.util.DummyData
 import junit.framework.TestCase
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +15,6 @@ import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.*
-import org.mockito.Spy
 import org.mockito.junit.MockitoJUnitRunner
 
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.Repository
+import com.android.assignment.data.repo.Repository
 import kotlinx.coroutines.*
 import javax.inject.Inject
 

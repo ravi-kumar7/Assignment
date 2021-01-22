@@ -2,8 +2,8 @@ package com.android.assignment.di.module
 
 import android.content.Context
 import androidx.room.Room
-import com.android.assignment.data.sources.local.AppDatabase
-import com.android.assignment.data.sources.local.FactDao
+import com.android.assignment.data.repo.local.AppDatabase
+import com.android.assignment.data.repo.local.FactDao
 import com.android.assignment.util.Constants
 import dagger.Module
 import dagger.Provides

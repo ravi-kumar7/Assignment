@@ -1,10 +1,10 @@
-package com.android.assignment.data.sources
+package com.android.assignment.data.repo
 
 import com.android.assignment.R
 import com.android.assignment.data.model.Response
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.local.LocalDataSource
-import com.android.assignment.data.sources.remote.RemoteDataSource
+import com.android.assignment.data.repo.local.LocalDataSource
+import com.android.assignment.data.repo.remote.RemoteDataSource
 import com.android.assignment.util.NetworkHelper
 import javax.inject.Inject
 import javax.inject.Singleton

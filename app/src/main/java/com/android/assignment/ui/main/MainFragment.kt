@@ -1,16 +1,19 @@
 package com.android.assignment.ui.main
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Parcelable
 import android.view.*
 import androidx.annotation.StringRes
-import com.android.assignment.MainActivity
+import com.android.assignment.ui.MainActivity
 import com.android.assignment.R
 import com.android.assignment.data.model.CategoryWithFacts
 import com.android.assignment.data.model.State
 import com.android.assignment.databinding.MainFragmentBinding
 import com.android.assignment.di.ActivityScope
-import com.android.assignment.di.FragmentScope
 import com.android.assignment.ui.list.FactAdapter
+import com.android.assignment.util.Constants
 import com.android.assignment.util.NetworkHelper
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
@@ -45,17 +48,33 @@ class MainFragment : DaggerFragment() {
         networkHelper.networkCallback {
             viewModel.syncData()
         }
+        binding.swipeRefreshView.setOnRefreshListener {
+            showMessage(R.string.syncing, Snackbar.LENGTH_SHORT)
+            viewModel.syncData(true)
+        }
+        savedInstanceState?.let {
+                Handler(Looper.getMainLooper())
+                    .postDelayed({
+                        val listState: Parcelable = it.getParcelable(Constants.KEY_SCROLL_POSITION)!!
+                        binding.rvItems.layoutManager?.onRestoreInstanceState(listState)
+
+                    },100)
+        }
     }
 
     private fun setupObservers() {
         viewModel.state.observe(viewLifecycleOwner){
             when(it){
-                State.Loading -> binding.showProgress = true
+                State.Loading -> {
+                    if(!binding.swipeRefreshView.isRefreshing)
+                    binding.showProgress = true
+                }
                 is State.Error -> {
                     binding.showProgress = false
                     showMessage(it.msg){
                         viewModel.getOrSyncData()
                     }
+                    binding.swipeRefreshView.isRefreshing = false
                 }
                 is State.Success<*> -> {
                     val categoryWithFacts = (it as State.Success<CategoryWithFacts>).data
@@ -64,6 +83,7 @@ class MainFragment : DaggerFragment() {
                     binding.showProgress = false
                     if(categoryWithFacts.fact.isEmpty())
                         showMessage(R.string.no_data)
+                    binding.swipeRefreshView.isRefreshing = false
                 }
                 else -> {
                     binding.showProgress = false
@@ -94,4 +114,12 @@ class MainFragment : DaggerFragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable(Constants.KEY_SCROLL_POSITION,binding.rvItems.layoutManager?.onSaveInstanceState())
+        super.onSaveInstanceState(outState)
+    }
+
+
 }

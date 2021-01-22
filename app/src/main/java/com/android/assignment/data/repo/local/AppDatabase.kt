@@ -1,4 +1,4 @@
-package com.android.assignment.data.sources.local
+package com.android.assignment.data.repo.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

@@ -1,4 +1,4 @@
-package com.android.assignment.data.sources.local
+package com.android.assignment.data.repo.local
 
 import android.content.Context
 import androidx.room.Room

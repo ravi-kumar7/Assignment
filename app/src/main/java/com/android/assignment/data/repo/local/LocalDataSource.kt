@@ -1,4 +1,4 @@
-package com.android.assignment.data.sources.local
+package com.android.assignment.data.repo.local
 
 import com.android.assignment.data.model.Category
 import com.android.assignment.data.model.Response

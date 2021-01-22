@@ -1,13 +1,12 @@
-package com.android.assignment.data.sources
+package com.android.assignment.data.repo
 
 import com.android.assignment.R
 import com.android.assignment.data.model.Category
 import com.android.assignment.data.model.CategoryWithFacts
 import com.android.assignment.data.model.Response
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.local.LocalDataSource
-import com.android.assignment.data.sources.remote.RemoteDataSource
-import com.android.assignment.data.sources.remote.api.NetworkService
+import com.android.assignment.data.repo.local.LocalDataSource
+import com.android.assignment.data.repo.remote.RemoteDataSource
 import com.android.assignment.util.DummyData
 import com.android.assignment.util.NetworkHelper
 import junit.framework.TestCase

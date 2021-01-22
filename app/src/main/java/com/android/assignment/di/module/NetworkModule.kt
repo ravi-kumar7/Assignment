@@ -2,7 +2,7 @@ package com.android.assignment.di.module
 
 import android.content.Context
 import com.android.assignment.BuildConfig
-import com.android.assignment.data.sources.remote.api.NetworkService
+import com.android.assignment.data.repo.remote.api.NetworkService
 import com.android.assignment.util.NetworkHelper
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module

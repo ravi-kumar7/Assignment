@@ -1,9 +1,8 @@
-package com.android.assignment.data.sources.remote
+package com.android.assignment.data.repo.remote
 
-import android.util.Log
 import com.android.assignment.R
 import com.android.assignment.data.model.State
-import com.android.assignment.data.sources.remote.api.NetworkService
+import com.android.assignment.data.repo.remote.api.NetworkService
 import javax.inject.Inject
 import javax.inject.Singleton
 
