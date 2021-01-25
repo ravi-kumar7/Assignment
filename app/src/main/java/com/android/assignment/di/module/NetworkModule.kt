@@ -3,7 +3,6 @@ package com.android.assignment.di.module
 import android.content.Context
 import com.android.assignment.BuildConfig
 import com.android.assignment.data.repo.remote.api.NetworkService
-import com.android.assignment.util.NetworkHelper
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -17,6 +16,7 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
+
     @Singleton
     @Provides
     fun provideNetworkService(okHttpClient: OkHttpClient): NetworkService {
@@ -28,9 +28,6 @@ class NetworkModule {
             .create(NetworkService::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideNetworkHelper(context: Context) = NetworkHelper(context)
 
     @Singleton
     @Provides

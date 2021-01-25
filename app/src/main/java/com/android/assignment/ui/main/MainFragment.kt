@@ -6,7 +6,6 @@ import android.os.Looper
 import android.os.Parcelable
 import android.view.*
 import androidx.annotation.StringRes
-import com.android.assignment.ui.MainActivity
 import com.android.assignment.R
 import com.android.assignment.data.model.CategoryWithFacts
 import com.android.assignment.data.model.State
@@ -78,10 +77,10 @@ class MainFragment : DaggerFragment() {
                 }
                 is State.Success<*> -> {
                     val categoryWithFacts = (it as State.Success<CategoryWithFacts>).data
-                    (requireActivity() as MainActivity).title = categoryWithFacts.category.title
+                    requireActivity().title = categoryWithFacts.category.title
                     factAdapter.submitList(categoryWithFacts.fact)
                     binding.showProgress = false
-                    if(categoryWithFacts.fact.isEmpty())
+                    if (categoryWithFacts.fact.isEmpty())
                         showMessage(R.string.no_data)
                     binding.swipeRefreshView.isRefreshing = false
                 }
